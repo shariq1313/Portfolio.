@@ -4,13 +4,31 @@
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
-    anchor.addEventListener("click", function(e){
+    anchor.addEventListener("click", function (e) {
+
+        const targetId = this.getAttribute("href");
+
+        if (!targetId || targetId === "#") return;
+
+        const target = document.querySelector(targetId);
+
+        if (!target) return;
 
         e.preventDefault();
 
-        document.querySelector(this.getAttribute("href"))
-        .scrollIntoView({
-            behavior:"smooth"
+        /*
+            Use window.scrollTo instead of scrollIntoView.
+            This prevents the browser from unexpectedly
+            changing the position of surrounding sections.
+        */
+
+        const targetPosition =
+            target.getBoundingClientRect().top +
+            window.pageYOffset;
+
+        window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth"
         });
 
     });
@@ -25,16 +43,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".sidebar nav ul li");
 
-window.addEventListener("scroll", ()=>{
+window.addEventListener("scroll", () => {
 
     let current = "";
 
-    sections.forEach(section=>{
+    sections.forEach(section => {
 
-        const top = section.offsetTop-180;
+        const top = section.offsetTop - 180;
         const height = section.offsetHeight;
 
-        if(scrollY >= top){
+        if (window.scrollY >= top &&
+            window.scrollY < top + height) {
 
             current = section.getAttribute("id");
 
@@ -42,11 +61,15 @@ window.addEventListener("scroll", ()=>{
 
     });
 
-    navLinks.forEach(li=>{
+    navLinks.forEach(li => {
 
         li.classList.remove("active");
 
-        if(li.querySelector("a").getAttribute("href")=="#"+current){
+        const link = li.querySelector("a");
+
+        if (!link) return;
+
+        if (link.getAttribute("href") === "#" + current) {
 
             li.classList.add("active");
 
@@ -54,69 +77,87 @@ window.addEventListener("scroll", ()=>{
 
     });
 
-});
+}, { passive: true });
 
 
 /*====================================
     SECTION REVEAL
 =====================================*/
 
-const revealSections=document.querySelectorAll(".section");
+const revealSections = document.querySelectorAll(".section");
 
-const reveal=()=>{
+const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
 
-    revealSections.forEach(section=>{
+        entries.forEach(entry => {
 
-        const top=section.getBoundingClientRect().top;
+            if (entry.isIntersecting) {
 
-        if(top<window.innerHeight-120){
+                entry.target.classList.add("show");
 
-            section.classList.add("show");
+                /*
+                    Stop observing after the section has
+                    appeared. This prevents repeated
+                    reveal calculations while scrolling.
+                */
 
-        }
+                observer.unobserve(entry.target);
 
-    });
+            }
 
-};
+        });
 
-window.addEventListener("scroll",reveal);
+    },
+    {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    }
+);
 
-reveal();
+revealSections.forEach(section => {
+
+    section.classList.remove("show");
+
+    revealObserver.observe(section);
+
+});
 
 
 /*====================================
     COUNTER
 =====================================*/
 
-const counters=document.querySelectorAll(".counter");
+const counters = document.querySelectorAll(".counter");
 
-const runCounter=()=>{
+const runCounter = () => {
 
-    counters.forEach(counter=>{
+    counters.forEach(counter => {
 
-        const target=+counter.dataset.target;
+        const target = Number(counter.dataset.target);
 
-        let count=0;
+        if (!target || target <= 0) return;
 
-        const speed=target/120;
+        let count = 0;
 
-        const update=()=>{
+        const speed = target / 120;
 
-            count+=speed;
+        const update = () => {
 
-            if(count<target){
+            count += speed;
 
-                counter.innerHTML=Math.floor(count);
+            if (count < target) {
+
+                counter.textContent = Math.floor(count);
 
                 requestAnimationFrame(update);
 
-            }else{
+            } else {
 
-                counter.innerHTML=target;
+                counter.textContent = target;
 
             }
 
-        }
+        };
 
         update();
 
@@ -131,17 +172,16 @@ runCounter();
     MOUSE GLOW
 =====================================*/
 
-const glow=document.createElement("div");
+const glow = document.createElement("div");
 
 glow.classList.add("cursor-glow");
 
 document.body.appendChild(glow);
 
-document.addEventListener("mousemove",(e)=>{
+document.addEventListener("mousemove", e => {
 
-    glow.style.left=e.clientX+"px";
-
-    glow.style.top=e.clientY+"px";
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
 
 });
 
@@ -150,15 +190,15 @@ document.addEventListener("mousemove",(e)=>{
     BACK TO TOP
 =====================================*/
 
-const topBtn=document.createElement("button");
+const topBtn = document.createElement("button");
 
-topBtn.innerHTML='<i class="fa-solid fa-arrow-up"></i>';
+topBtn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
 
 topBtn.classList.add("top-btn");
 
 document.body.appendChild(topBtn);
 
-topBtn.style.cssText=`
+topBtn.style.cssText = `
 position:fixed;
 bottom:35px;
 right:35px;
@@ -175,44 +215,42 @@ z-index:999;
 box-shadow:0 10px 30px rgba(0,212,255,.4);
 `;
 
-window.addEventListener("scroll",()=>{
+window.addEventListener("scroll", () => {
 
-    if(window.scrollY>500){
+    if (window.scrollY > 500) {
 
-        topBtn.style.display="block";
+        topBtn.style.display = "block";
 
-    }else{
+    } else {
 
-        topBtn.style.display="none";
+        topBtn.style.display = "none";
 
     }
 
-});
+}, { passive: true });
 
-topBtn.onclick=()=>{
+
+topBtn.addEventListener("click", () => {
 
     window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
+        top: 0,
+        behavior: "smooth"
     });
 
-};
+});
 
 
 /*====================================
     SCROLL PROGRESS BAR
 =====================================*/
 
-const progress=document.createElement("div");
+const progress = document.createElement("div");
 
 progress.classList.add("progress-bar");
 
 document.body.appendChild(progress);
 
-progress.style.cssText=`
+progress.style.cssText = `
 position:fixed;
 top:0;
 left:0;
@@ -222,12 +260,23 @@ z-index:9999;
 width:0%;
 `;
 
-window.addEventListener("scroll",()=>{
+window.addEventListener("scroll", () => {
 
-    const total=document.documentElement.scrollHeight-window.innerHeight;
+    const total =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
 
-    const percent=(window.scrollY/total)*100;
+    if (total <= 0) {
 
-    progress.style.width=percent+"%";
+        progress.style.width = "0%";
+        return;
 
-});
+    }
+
+    const percent =
+        (window.scrollY / total) * 100;
+
+    progress.style.width =
+        Math.min(100, Math.max(0, percent)) + "%";
+
+}, { passive: true });
