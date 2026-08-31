@@ -1,0 +1,677 @@
+/*====================================
+    PHASE 1 — PREMIUM 3D HERO
+=====================================*/
+
+.hero {
+    position: relative;
+    perspective: 1400px;
+    isolation: isolate;
+}
+
+
+.hero-left,
+.hero-right {
+    position: relative;
+    z-index: 2;
+}
+
+
+/*====================================
+    3D HERO CONTAINER
+=====================================*/
+
+.hero-right {
+    min-height: 540px;
+    overflow: visible;
+    transform-style: preserve-3d;
+}
+
+
+/*====================================
+    ORIGINAL LAPTOP IMAGE
+=====================================*/
+
+.hero-right > img {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/*====================================
+    THREE.JS CANVAS
+=====================================*/
+
+.hero-3d-canvas {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    pointer-events: none;
+
+    transform:
+        translateZ(0);
+
+    filter:
+        drop-shadow(
+            0 35px 55px
+            rgba(0, 0, 0, 0.35)
+        );
+}
+
+
+/*====================================
+    MAIN AURA
+=====================================*/
+
+.hero-right::before {
+    content: "";
+
+    position: absolute;
+
+    width: 72%;
+    height: 72%;
+
+    left: 14%;
+    top: 11%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(123, 97, 255, 0.20) 0%,
+            rgba(0, 212, 255, 0.07) 35%,
+            transparent 70%
+        );
+
+    filter: blur(25px);
+
+    pointer-events: none;
+
+    animation:
+        heroAuraPremium
+        6s ease-in-out infinite;
+}
+
+
+/*====================================
+    FLOOR GLOW
+=====================================*/
+
+.hero-right::after {
+    content: "";
+
+    position: absolute;
+
+    width: 52%;
+    height: 17%;
+
+    left: 24%;
+    bottom: 8%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(0, 212, 255, 0.22),
+            transparent 72%
+        );
+
+    filter: blur(27px);
+
+    pointer-events: none;
+
+    animation:
+        heroFloorPremium
+        4s ease-in-out infinite;
+}
+
+
+/*====================================
+    PROFILE 3D
+=====================================*/
+
+.profile-circle {
+    transform-style: preserve-3d;
+
+    will-change: transform;
+
+    transition:
+        transform 0.35s
+        cubic-bezier(.2,.8,.2,1),
+
+        box-shadow 0.35s ease;
+}
+
+
+.profile-circle:hover {
+    box-shadow:
+        0 24px 60px
+        rgba(0, 212, 255, 0.32),
+
+        0 0 0 1px
+        rgba(0, 212, 255, 0.3),
+
+        inset 0 0 30px
+        rgba(123, 97, 255, 0.12);
+}
+
+
+/*====================================
+    BUTTONS
+=====================================*/
+
+.buttons .btn,
+.buttons .btn-outline {
+    transform-style: preserve-3d;
+
+    will-change: transform;
+
+    transition:
+        transform 0.25s
+        cubic-bezier(.2,.8,.2,1),
+
+        box-shadow 0.25s ease;
+}
+
+
+/*====================================
+    HERO AURA
+=====================================*/
+
+@keyframes heroAuraPremium {
+
+    0%,
+    100% {
+        transform:
+            scale(0.92)
+            translate3d(0, 0, 0);
+
+        opacity: 0.7;
+    }
+
+    50% {
+        transform:
+            scale(1.08)
+            translate3d(0, -12px, 0);
+
+        opacity: 1;
+    }
+}
+
+
+/*====================================
+    FLOOR
+=====================================*/
+
+@keyframes heroFloorPremium {
+
+    0%,
+    100% {
+        transform:
+            scaleX(0.78);
+
+        opacity: 0.25;
+    }
+
+    50% {
+        transform:
+            scaleX(1.10);
+
+        opacity: 0.55;
+    }
+}
+
+
+/*====================================
+    LARGE SCREEN
+=====================================*/
+
+@media (min-width: 1400px) {
+
+    .hero-right {
+        min-height: 600px;
+    }
+
+}
+
+
+/*====================================
+    TABLET
+=====================================*/
+
+@media (max-width: 1200px) {
+
+    .hero-right {
+        min-height: 500px;
+    }
+
+}
+
+
+/*====================================
+    MOBILE
+=====================================*/
+
+@media (max-width: 768px) {
+
+    .hero-right {
+        min-height: 430px;
+    }
+
+    .hero-right::before {
+        width: 85%;
+        height: 75%;
+        left: 7%;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .hero-right {
+        min-height: 360px;
+    }
+
+    .hero-right::after {
+        bottom: 4%;
+    }
+
+}
+
+
+/*====================================
+    REDUCED MOTION
+=====================================*/
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-right::before,
+    .hero-right::after {
+        animation: none;
+    }
+
+}
+/*====================================
+    PHASE 2 — 3D SCROLL
+=====================================*/
+
+#about,
+#stats,
+#projects,
+#skills,
+#services,
+#contact,
+main > .section {
+    position: relative;
+
+    transform-style: preserve-3d;
+
+    perspective: 1400px;
+}
+
+
+/*====================================
+    ABOUT
+=====================================*/
+
+#about .glass-card {
+    transform-style: preserve-3d;
+
+    will-change:
+        transform,
+        opacity;
+}
+
+
+#about .glass-card h3,
+#about .glass-card p {
+    position: relative;
+
+    transform:
+        translateZ(18px);
+}
+
+
+/*====================================
+    STATS
+=====================================*/
+
+#stats .stat-card {
+    transform-style: preserve-3d;
+
+    will-change:
+        transform,
+        opacity;
+
+    backface-visibility: hidden;
+}
+
+
+#stats .stat-card i {
+    display: inline-block;
+
+    transform:
+        translateZ(28px);
+}
+
+
+#stats .stat-card h2 {
+    transform:
+        translateZ(36px);
+}
+
+
+#stats .stat-card p {
+    transform:
+        translateZ(24px);
+}
+
+
+/*====================================
+    SECTION TITLES
+=====================================*/
+
+.section-title {
+    transform-style: preserve-3d;
+
+    transform-origin:
+        center bottom;
+}
+
+
+/*====================================
+    TIMELINE
+=====================================*/
+
+.timeline-item {
+    transform-style: preserve-3d;
+
+    backface-visibility: hidden;
+
+    will-change:
+        transform,
+        opacity;
+}
+
+
+/*====================================
+    CONTACT
+=====================================*/
+
+#contact .contact-box {
+    transform-style: preserve-3d;
+
+    backface-visibility: hidden;
+
+    will-change:
+        transform,
+        opacity;
+}
+
+
+#contact .contact-info,
+#contact .contact-form {
+    transform:
+        translateZ(18px);
+}
+
+
+/*====================================
+    MOBILE
+=====================================*/
+
+@media (max-width: 768px) {
+
+    #about,
+    #stats,
+    #projects,
+    #skills,
+    #services,
+    #contact,
+    main > .section {
+        perspective: none;
+    }
+
+    #about .glass-card,
+    #stats .stat-card,
+    .timeline-item,
+    #contact .contact-box {
+        transform-style: flat;
+    }
+
+}/*====================================
+    PHASE 3 — PREMIUM PROJECTS
+=====================================*/
+
+#projects .projects {
+    perspective: 1400px;
+
+    transform-style: preserve-3d;
+}
+
+
+/*====================================
+    PROJECT CARD
+=====================================*/
+
+#projects .project {
+
+    position: relative;
+
+    transform-style: preserve-3d;
+
+    backface-visibility: hidden;
+
+    will-change: transform;
+
+    overflow: hidden;
+
+    transition:
+        transform .35s
+        cubic-bezier(.2,.8,.2,1),
+
+        box-shadow .35s ease;
+}
+
+#projects .project.is-tilting {
+
+    transition: box-shadow .35s ease;
+}
+
+/*====================================
+    CURSOR GLOW
+=====================================*/
+
+#projects .project::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 4;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    background:
+        radial-gradient(
+            circle at
+            var(--project-x, 50%)
+            var(--project-y, 50%),
+
+            rgba(0, 212, 255, .16),
+
+            transparent 34%
+        );
+
+    transition:
+        opacity .3s ease;
+}
+
+
+#projects .project:hover::before {
+    opacity: 1;
+}
+
+
+/*====================================
+    PROJECT IMAGE
+=====================================*/
+
+#projects .project > img {
+
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    transform:
+        translateZ(12px)
+        scale(1.01);
+
+    transform-origin:
+        center center;
+
+    will-change:
+        transform;
+
+    transition:
+        transform .45s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+
+/*====================================
+    CONTENT DEPTH
+=====================================*/
+
+#projects .project-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    transform:
+        translateZ(25px);
+
+    transform-style:
+        preserve-3d;
+}
+
+
+/*====================================
+    TITLE
+=====================================*/
+
+#projects .project-content h3 {
+
+    transform:
+        translateZ(30px);
+}
+
+
+/*====================================
+    DESCRIPTION
+=====================================*/
+
+#projects .project-content p {
+
+    transform:
+        translateZ(20px);
+}
+
+
+/*====================================
+    TAGS
+=====================================*/
+
+#projects .tags {
+
+    position: relative;
+
+    transform-style:
+        preserve-3d;
+}
+
+
+#projects .tags span {
+
+    display: inline-block;
+
+    transform:
+        translateZ(28px);
+
+    transition:
+        transform .3s ease;
+}
+
+
+#projects .project:hover .tags span {
+
+    transform:
+        translateZ(38px)
+        translateY(-2px);
+}
+
+
+/*====================================
+    PROJECT SHADOW
+=====================================*/
+
+#projects .project:hover {
+
+    box-shadow:
+
+        0 30px 65px
+        rgba(0, 0, 0, .35),
+
+        0 0 30px
+        rgba(0, 212, 255, .10);
+}
+
+
+/*====================================
+    MOBILE
+=====================================*/
+
+@media (max-width: 768px) {
+
+    #projects .projects {
+        perspective: none;
+    }
+
+    #projects .project {
+        transform-style: flat;
+
+        will-change: auto;
+    }
+
+    #projects .project::before {
+        display: none;
+    }
+
+    #projects .project-content,
+    #projects .project-content h3,
+    #projects .project-content p,
+    #projects .tags,
+    #projects .tags span {
+        transform: none;
+    }
+
+}
+
