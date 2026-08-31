@@ -6,7 +6,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title> Moeez | Front-End Developer</title>
+<title>MOEEZ | Front-End Developer</title>
+
+<meta name="description" content="Shariq Ur Rafay — Front-End Developer building responsive, modern websites with HTML, CSS, JavaScript and Bootstrap.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237B61FF'/%3E%3Cstop offset='1' stop-color='%2300D4FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='%230B1220'/%3E%3Ctext x='50' y='63' font-family='Poppins,Arial,sans-serif' font-weight='700' font-size='40' text-anchor='middle' fill='url(%23g)'%3E%3C/%3E%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -20,6 +24,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 <link rel="stylesheet" href="style.css">
 
 <link rel="stylesheet" href="responsive.css">
+
+<link rel="stylesheet" href="animations.css">
+
 
 </head>
 
@@ -37,7 +44,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
         </div>
 
-        <h2>Moeez</h2>
+        <h2>MOEEZ</h2>
 
         <span>Loading Portfolio...</span>
 
@@ -62,7 +69,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <h2>
 &lt;/&gt;
-<span>Moeez</span>
+<span>MOEEZ</span>
 </h2>
 
 <p>Front-End Developer</p>
@@ -208,7 +215,7 @@ placeholder="Search anything...">
 
 <div class="profile">
 
-<img src="moeez.jpg">
+<img src="moeez.jpg" alt="Shariq" width="55" height="55" loading="eager">
 
 <div>
 
@@ -239,7 +246,7 @@ id="home">
 
 <div class="profile-circle">
 
-<img src="moeez.jpg">
+<img src="profile.jpg" alt="Portrait of Shariq Ur Rafay" width="180" height="180" loading="eager">
 
 </div>
 
@@ -249,9 +256,9 @@ id="home">
 
 <h1>
 
-MOEEZ
+Moeez
 
-<span>IDREES</span>
+<span>Idrees</span>
 
 </h1>
 
@@ -275,7 +282,7 @@ View Projects
 
 <a href="#contact" class="btn-outline">
 
-Let's talk
+Let's Talk
 
 </a>
 
@@ -288,7 +295,8 @@ Let's talk
 
 <div class="hero-right">
 
-<img src="laptop.png">
+<img
+src="laptop.png" alt="" aria-hidden="true" loading="eager">
 
 </div>
 
@@ -332,7 +340,7 @@ Stats
 
 <i class="fa-solid fa-folder-open"></i>
 
-<h2 class="counter" data-target="15">0</h2>
+<h2 class="counter" data-target="40">0</h2>
 
 <p>Projects</p>
 
@@ -342,7 +350,7 @@ Stats
 
 <i class="fa-solid fa-user-group"></i>
 
-<h2 class="counter" data-target="05">0</h2>
+<h2 class="counter" data-target="25">0</h2>
 
 <p>Clients</p>
 
@@ -352,7 +360,7 @@ Stats
 
 <i class="fa-solid fa-award"></i>
 
-<h2 class="counter" data-target="2">0</h2>
+<h2 class="counter" data-target="5">0</h2>
 
 <p>Years Experience</p>
 
@@ -362,9 +370,59 @@ Stats
 
 <i class="fa-solid fa-code"></i>
 
-<h2 class="counter" data-target="500000">0</h2>
+<h2 class="counter" data-target="250000">0</h2>
 
 <p>Lines of Code</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!--====================================
+Global Network (3D Tech Globe)
+=====================================-->
+<section class="section" id="network">
+
+<div class="section-title">
+
+<h2>Global <span>Network</span></h2>
+
+</div>
+
+<div class="globe-wrap">
+
+<div class="globe-info">
+
+<h3>Building for a Connected World</h3>
+
+<p>
+Working with clients across time zones, from first commit
+to final deploy. Wherever you are, I'm ready to collaborate.
+</p>
+
+<ul class="globe-points">
+
+<li><i class="fa-solid fa-bolt"></i> Fast, responsive communication</li>
+
+<li><i class="fa-solid fa-code-branch"></i> Remote-friendly workflow</li>
+
+<li><i class="fa-solid fa-globe"></i> Available worldwide</li>
+
+</ul>
+
+</div>
+
+<div class="globe-canvas-wrap">
+
+<div class="globe-canvas-mount" id="techGlobeMount" aria-hidden="true"></div>
+
+<span class="globe-badge float" style="--fx:-1;">&lt;/&gt;</span>
+<span class="globe-badge float" style="--fx:1; animation-delay:.6s;">UI/UX</span>
+<span class="globe-badge float" style="--fx:-1; animation-delay:1.2s;">API</span>
+<span class="globe-badge float" style="--fx:1; animation-delay:1.8s;">Cloud</span>
 
 </div>
 
@@ -404,10 +462,91 @@ Dashboard
 </div>
 
 <div class="projects">
+<!--====================================
+Gym Project 
+=====================================--> 
 
 <div class="project" data-category="frontend">
 
-<img src="project1.png">
+<img src="project3.png" alt="Gym Website homepage showing a fine dining hero section" loading="lazy">
+
+<div class="project-content">
+
+<h3>GYM Website</h3>
+
+<p>
+Responsive GYM Website with modern UI.
+</p>
+
+<div class="tags">
+
+<span>HTML</span>
+
+<span>CSS</span>
+
+<span>JavaScript</span>
+
+</div>
+
+<a href="https://shariq1313.github.io/Forge-Gym/"
+   class="btn-demo"
+   target="_blank"
+   rel="noopener noreferrer">
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    Live Demo
+</a>
+
+</div>
+
+</div>  
+
+<!--====================================
+Portfolio Project 
+=====================================--> 
+
+
+<div class="project" data-category="frontend">
+
+<img src="project4.png" alt="Portfolio Website homepage showing a fine dining hero section" loading="lazy">
+
+<div class="project-content">
+
+<h3>Portfolio Website</h3>
+
+<p>
+Responsive Portfolio Website with modern UI.
+</p>
+
+<div class="tags">
+
+<span>HTML</span>
+
+<span>CSS</span>
+
+<span>JavaScript</span>
+
+</div>
+
+<a href=" https://shariq1313.github.io/Portfolio./"
+   class="btn-demo"
+   target="_blank"
+   rel="noopener noreferrer">
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    Live Demo
+</a>
+
+</div>
+
+</div>  
+
+<!--====================================
+Resturant  Project 
+=====================================--> 
+
+
+<div class="project" data-category="landing ">
+
+<img src="project1.jpg" alt="Restaurant Website homepage showing a fine dining hero section" loading="lazy">
 
 <div class="project-content">
 
@@ -427,13 +566,26 @@ Responsive Restaurant Website with modern UI.
 
 </div>
 
+<a href="#"
+   class="btn-demo"
+   target="_blank"
+   rel="noopener noreferrer">
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    Live Demo
+</a>
+
+
 </div>
 
 </div>
+
+<!--====================================
+Agency Project 
+=====================================--> 
 
 <div class="project" data-category="landing">
 
-<img src="project2.jfif">
+<img src="project2.jpg" alt="Agency Website landing page with animated sections" loading="lazy">
 
 <div class="project-content">
 
@@ -454,6 +606,55 @@ Modern business website with animations.
 <span>Responsive</span>
 
 </div>
+
+<a href="#"
+   class="btn-demo"
+   target="_blank"
+   rel="noopener noreferrer">
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    Live Demo
+</a>
+
+</div>
+
+</div>
+
+<!--====================================
+MZ Cars Project 
+=====================================--> 
+
+<div class="project" data-category="landing">
+
+<img src="project5.png" alt="MZ Cars Website landing page with animated sections" loading="lazy">
+
+<div class="project-content">
+
+<h3>MZ Cars Website</h3>
+
+<p>
+
+Modern business website with animations.
+
+</p>
+
+<div class="tags">
+
+<span>Bootstrap</span>
+
+<span>GSAP</span>
+
+<span>Responsive</span>
+
+</div>
+
+<a href="  https://shariq1313.github.io/MZ-cars-/"
+   class="btn-demo"
+   target="_blank"
+   rel="noopener noreferrer">
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    Live Demo
+</a>
+
 
 </div>
 
@@ -478,7 +679,7 @@ Skills
 
 <div class="skill">
 
-<img src="html.jfif" >
+<img src="html-icon.jpg" alt="HTML5" width="55" height="55" loading="lazy">
 
 <h4>HTML5</h4>
 <div class="skill-progress">
@@ -491,7 +692,7 @@ Skills
 
 <div class="skill">
 
-<img src="css.jfif">
+<img src="css.jpg" alt="CSS3" width="55" height="55" loading="lazy">
 
 <h4>CSS3</h4>
 <div class="skill-progress">
@@ -505,7 +706,7 @@ Skills
 
 <div class="skill">
 
-<img src="javascript.jfif">
+<img src="javascript.jpg" alt="JavaScript" width="55" height="55" loading="lazy">
 
 <h4>JavaScript</h4>
 <div class="skill-progress">
@@ -519,7 +720,7 @@ Skills
 
 <div class="skill">
 
-<img src="bootstrap.jfif">
+<img src="bootstrap.jpg" alt="Bootstrap" width="55" height="55" loading="lazy">
 
 <h4>Bootstrap</h4>
 
@@ -534,7 +735,7 @@ Skills
 
 <div class="skill">
 
-<img src="git.jfif">
+<img src="git.jpg" alt="Git" width="55" height="55" loading="lazy">
 
 <h4>Git</h4>
 
@@ -549,7 +750,7 @@ Skills
 
 <div class="skill">
 
-<img src="git hub.jfif">
+<img src="github.jpg" alt="GitHub" width="55" height="55" loading="lazy">
 
 <h4>GitHub</h4>
 
@@ -564,7 +765,7 @@ Skills
 
 <div class="skill">
 
-<img src="figma.jfif">
+<img src="figma.jpg" alt="Figma" width="55" height="55" loading="lazy">
 
 <h4>Figma</h4>
 
@@ -579,7 +780,7 @@ Skills
 
 <div class="skill">
 
-<img src="responsive.jfif">
+<img src="responsive.jpg" alt="Responsive Design" width="55" height="55" loading="lazy">
 
 <h4>Responsive</h4>
 
@@ -687,6 +888,89 @@ Timeline
 
 </section>
 <!--====================================
+Testimonials
+=====================================-->
+<section class="section" id="testimonials">
+
+<div class="section-title">
+
+<h2>Client <span>Testimonials</span></h2>
+
+</div>
+
+<div class="testimonials">
+
+<div class="testimonial-card">
+
+<div class="testimonial-stars" aria-label="5 out of 5 stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
+
+<p class="testimonial-quote">
+"Our booking page finally looks as good as the food tastes. Shariq turned
+our reference photos into a fast, mobile-friendly site and kept us updated
+at every step."
+</p>
+
+<div class="testimonial-author">
+<h4>Amelia Novak</h4>
+<span>Owner, Bloom &amp; Table Bistro</span>
+</div>
+
+</div>
+
+<div class="testimonial-card">
+
+<div class="testimonial-stars" aria-label="5 out of 5 stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
+
+<p class="testimonial-quote">
+"The animation work alone made our landing page feel like a completely
+different product. Clean handoff, clear communication, delivered on time."
+</p>
+
+<div class="testimonial-author">
+<h4>Daniel Reyes</h4>
+<span>Marketing Lead, Skyline Creative</span>
+</div>
+
+</div>
+
+<div class="testimonial-card">
+
+<div class="testimonial-stars" aria-label="4.5 out of 5 stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half-stroke"></i>
+</div>
+
+<p class="testimonial-quote">
+"We're a distributed team across three time zones and it was never an
+issue. Thoughtful, responsive, and genuinely easy to work with."
+</p>
+
+<div class="testimonial-author">
+<h4>Priya Anand</h4>
+<span>Founder, Nimbus Labs</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!--====================================
 Contact
 =====================================-->
 <section class="section" id="contact">
@@ -747,19 +1031,21 @@ Contact
 
 <div class="contact-form">
 
-<form>
+<form id="contactForm" novalidate>
 
-<input type="text" placeholder="Your Name">
+<input type="text" name="name" placeholder="Your Name" required>
 
-<input type="email" placeholder="Email">
+<input type="email" name="email" placeholder="Email" required>
 
-<textarea placeholder="Message"></textarea>
+<textarea name="message" placeholder="Message" required></textarea>
 
-<button class="btn">
+<button class="btn" type="submit">
 
 Send Message
 
 </button>
+
+<p class="form-status" aria-live="polite"></p>
 
 </form>
 
@@ -793,27 +1079,73 @@ Frontend Developer • HTML • CSS • JavaScript
 
 </div>
 
+<!-- ====================================
+     LIBRARIES
+===================================== -->
 
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<!-- GSAP -->
+<script src="gsap.min.js"></script>
+<script src="ScrollTrigger.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<!-- ====================================
+     EXISTING PORTFOLIO JAVASCRIPT
+===================================== -->
 
-<script defer src="main.js"></script>
+<script src="main.js"></script>
 
-<script defer src="animation.js"></script>
+<script src="animation.js"></script>
 
-<script defer src="cursor.js"></script>
+<script src="cursor.js"></script>
 
-<script defer src="responsive.js"></script>
+<script src="responsive.js"></script>
 
-<script defer src="loader.js"></script>
+<script src="loader.js"></script>
 
-<script defer src="project.js"></script>
+<script src="project.js"></script>
 
-<script defer src="particles.js"></script>
+<script src="particles.js"></script>
+
+
+<!-- ====================================
+     PHASE 1 — 3D HERO
+===================================== -->
+
+<!-- 3D UI interactions -->
+<script src="3d-effects.js"></script>
+
+<!-- Three.js 3D scene -->
+<script type="module" src="3d-scene.js"></script>
+
+
+<!-- ====================================
+     PHASE 2 — 3D SCROLL
+===================================== -->
+
+<script src="scroll-3d.js"></script>
+
+
+<!-- ====================================
+     PHASE 3 — 3D PROJECTS
+===================================== -->
+
+<script src="project-3d.js"></script>
+
+
+<!-- ====================================
+     PHASE 4 — 3D SKILLS + SERVICES
+===================================== -->
+
+<script src="skills-3d.js"></script>
+
+
+<!-- ====================================
+     PHASE 5 — TECH GLOBE + TESTIMONIALS
+===================================== -->
+
+<script type="module" src="tech-globe.js"></script>
+
+<script src="testimonials.js"></script>
 
 </body>
-
 </html>
